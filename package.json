@@ -1,0 +1,39 @@
+{
+  "name": "onesecondpersecond",
+  "description": "Living life at the constant rate of 1s/s.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Nap Joseph Calub",
+    "email": "njncalub@gmail.com",
+    "url": "https://njncalub.github.io/"
+  },
+  "homepage": "https://onesecondpersecond.glitch.me/",
+  "keywords": [
+    "blog"
+  ],
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "watch": "eleventy --watch",
+    "debug": "DEBUG=* eleventy"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njncalub/onesecondpersecond.git"
+  },
+  "bugs": {
+    "url": "https://github.com/njncalub/onesecondpersecond/issues"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-navigation": "^0.1.4",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "luxon": "^1.22.0",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.2.2",
+    "html-minifier": "^4.0.0"
+  },
+  "devDependencies": {}
+}

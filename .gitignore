@@ -1,0 +1,21 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+package-lock.json
+
+# system
+.DS_Store
+
+# debug
+npm-debug.log*
+
+# caches
+.cache
+
+# output
+dist
+
+# glitch
+shrinkwrap.yaml
+_site
