@@ -1,0 +1,26 @@
+{
+  "name": "onesecondpersecond",
+  "description": "Living life at the constant rate of 1s/s.",
+  "author": "Nap Joseph Calub <njncalub@gmail.com>",
+  "homepage": "https://onesecondpersecond.glitch.me/",
+  "keywords": [
+    "blog"
+  ],
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njncalub/onesecondpersecond.git"
+  },
+  "bugs": {
+    "url": "https://github.com/njncalub/onesecondpersecond/issues"
+  },
+  "license": "MIT",
+  "version": "0.0.1"
+}
