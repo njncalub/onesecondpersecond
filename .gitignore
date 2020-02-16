@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+package-lock.json
 
 # system
 .DS_Store
@@ -17,3 +18,4 @@ dist
 
 # glitch
 shrinkwrap.yaml
+_site
