@@ -4,6 +4,8 @@ node_js:
 before_script:
   - npm install @11ty/eleventy -g
 script: eleventy
+after_failure:
+  - cat /home/travis/.npm/_logs/*-debug.log
 deploy:
   provider: pages
   on:
