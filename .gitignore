@@ -14,8 +14,9 @@ npm-debug.log*
 .cache
 
 # output
+_site
 dist
+public
 
 # glitch
 shrinkwrap.yaml
-_site
