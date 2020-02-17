@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Tagged "{{ tag }}"
 pagination:
   data: collections
   size: 1
@@ -9,16 +10,14 @@ pagination:
     - nav
     - post
     - posts
-    - tagList
+    - tagsList
   addAllPagesToCollections: true
 renderData:
-  title: Tagged “{{ tag }}”
+  title: Tagged "{{ tag }}"
 permalink: /tags/{{ tag }}/
 ---
 
-<h1>Tagged “{{ tag }}”</h1>
-
-{% set postslist = collections[ tag ] %}
-{% include "postslist.njk" %}
+{% set postsList = collections[ tag ] %}
+{% include "posts-list.njk" %}
 
 <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
