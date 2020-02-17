@@ -57,10 +57,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection(
     "tagsList",
-    require("./templates/_11ty/helpers/getTagsList")
+    require("./src/_11ty/helpers/getTagsList")
   );
 
-  eleventyConfig.addPassthroughCopy("./templates/static");
+  eleventyConfig.addPassthroughCopy("./src/static");
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -99,7 +99,7 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: "njk",
 
     dir: {
-      input: "templates",
+      input: "src",
       data: "_data",
       includes: "_includes",
       layouts: "_layouts",
