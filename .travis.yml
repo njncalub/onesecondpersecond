@@ -4,11 +4,15 @@ node_js:
 before_script:
   - npm install @11ty/eleventy -g
 script: eleventy
+after_failure:
+  - cat /home/travis/.npm/_logs/*-debug.log
 deploy:
-  local-dir: dist
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard, marked secure.
-  keep-history: true
   on:
-    branch: master
+    branch: develop
+  local-dir: dist # Copy the generated files to the `master` branch instead of `gh-pages`.
+  target-branch: master
+  github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard, marked secure.
+  committer_from_gh: true
+  keep-history: true
+  skip-cleanup: true
