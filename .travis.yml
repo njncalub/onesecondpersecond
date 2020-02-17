@@ -1,16 +1,19 @@
 language: node_js
 node_js:
-  - 8
+  - 10
 before_script:
-  - npm install @11ty/eleventy -g
-script: eleventy
+  - npm install
+script: npm run-script build
 after_failure:
   - cat /home/travis/.npm/_logs/*-debug.log
 deploy:
   provider: pages
   on:
-    branch: develop
-  local-dir: dist # Copy the generated files to the `master` branch instead of `gh-pages`.
+    branch: stable
+  local-dir: public
+  # Copy the generated files to the `master` branch instead of `gh-pages`
+  # since GitHub does not allow personal/organization sites to use any branch
+  # aside from `master`.
   target-branch: master
   github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard, marked secure.
   committer_from_gh: true

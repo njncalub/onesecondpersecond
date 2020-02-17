@@ -11,12 +11,6 @@
   "keywords": [
     "blog"
   ],
-  "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve",
-    "watch": "eleventy --watch",
-    "debug": "DEBUG=* eleventy"
-  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -24,6 +18,18 @@
   },
   "bugs": {
     "url": "https://github.com/onesecondpersecond/onesecondpersecond.github.io/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf public",
+    "start": "npm-run-all clean --parallel local:*",
+    "local:eleventy": "ELEVENTY_ENV=development eleventy --watch --quiet --config=eleventy.config.js",
+    "local:webpack": "webpack --mode=development --watch --config webpack.local.js",
+    "build": "npm-run-all clean --parallel stable:*",
+    "stable:eleventy": "ELEVENTY_ENV=production eleventy --config=eleventy.config.js",
+    "stable:webpack": "webpack -p --config webpack.stable.js",
+    "bs-stable": "browser-sync start --server ./public -w --no-open --no-notify --no-ghost-mode",
+    "testbuild": "npm-run-all clean --parallel stable:webpack stable:eleventy bs-stable"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
@@ -33,7 +39,18 @@
     "luxon": "^1.22.0",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.2",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.10",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "webpack-merge": "^4.2.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "10.x"
+  },
+  "private": true
 }

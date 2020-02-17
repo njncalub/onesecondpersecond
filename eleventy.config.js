@@ -1,5 +1,5 @@
 /**
- * Documentation: https://www.11ty.dev/docs/config/
+ * File documentation: https://www.11ty.dev/docs/config/.
  */
 
 const { DateTime } = require("luxon");
@@ -57,12 +57,13 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection(
     "tagsList",
-    require("./src/_11ty/helpers/getTagsList")
+    require("./templates/_11ty/helpers/getTagsList")
   );
 
-  eleventyConfig.addPassthroughCopy("./src/static");
+  // TODO(njncalub): Remove this after migrating to webpack.
+  eleventyConfig.addPassthroughCopy("./templates/static");
 
-  /* Markdown Overrides */
+  // Markdown overrides.
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
@@ -74,11 +75,11 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  // Browsersync Overrides
+  // BrowserSync Overrides.
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync("_site/404.html");
+        const content_404 = fs.readFileSync("public/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
@@ -99,11 +100,11 @@ module.exports = function(eleventyConfig) {
     dataTemplateEngine: "njk",
 
     dir: {
-      input: "src",
+      input: "templates",
       data: "_data",
       includes: "_includes",
       layouts: "_layouts",
-      output: "dist"
+      output: "public"
     }
   };
 };
