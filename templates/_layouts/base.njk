@@ -2,8 +2,8 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{{ title }} | {{ metadata.site.title }}</title>
-    <meta name="description" content="{{ metadata.site.description }}" />
+    <title>{{ renderData.title or title or metadata.title }} | {{ metadata.site.title }}</title>
+    <meta name="description" content="{{ renderData.description or description or metadata.description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta name="theme-color" content="#fafafa" />

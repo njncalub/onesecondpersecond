@@ -6,8 +6,5 @@ eleventyNavigation:
   key: Archive
   order: 2
 ---
-
-<h1>{{ title }}</h1>
-
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+{% set postsList = collections.posts %}
+{% include "posts-list.njk" %}

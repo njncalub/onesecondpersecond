@@ -5,13 +5,12 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-
 <h1>
   Welcome to the {{ metadata.site.title }} site!
 </h1>
 
-{% set postslist = collections.posts | head(-3) %}
-{% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
+{% set postsList = collections.posts | head(-3) %}
+{% set postsListCounter = collections.posts | length %}
+{% include "posts-list.njk" %}
 
 <p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
