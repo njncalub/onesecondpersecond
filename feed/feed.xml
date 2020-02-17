@@ -3,10 +3,10 @@
 	<title>1s/s</title>
 	<subtitle>Living life at the constant rate of 1s/s.</subtitle>
 	
-	<link href="https://onesecondpersecond.glitch.me/feed/feed.xml" rel="self"/>
-	<link href="https://onesecondpersecond.glitch.me/"/>
+	<link href="https://onesecondpersecond.github.io/feed/feed.xml" rel="self"/>
+	<link href="https://onesecondpersecond.github.io/"/>
 	<updated>2018-07-04T00:00:00-00:00</updated>
-	<id>https://onesecondpersecond.glitch.me/</id>
+	<id>https://onesecondpersecond.github.io/</id>
 	<author>
 		<name>Nap Joseph Calub</name>
 		<email>njncalub@gmail.com</email>
@@ -14,9 +14,9 @@
 	
 	<entry>
 		<title>This is my first post.</title>
-		<link href="https://onesecondpersecond.glitch.me/posts/first/"/>
+		<link href="https://onesecondpersecond.github.io/posts/first/"/>
 		<updated>2018-05-01T00:00:00-00:00</updated>
-		<id>https://onesecondpersecond.glitch.me/posts/first/</id>
+		<id>https://onesecondpersecond.github.io/posts/first/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -27,13 +27,13 @@
 	
 	<entry>
 		<title>This is my second post.</title>
-		<link href="https://onesecondpersecond.glitch.me/posts/second/"/>
+		<link href="https://onesecondpersecond.github.io/posts/second/"/>
 		<updated>2018-07-04T00:00:00-00:00</updated>
-		<id>https://onesecondpersecond.glitch.me/posts/second/</id>
+		<id>https://onesecondpersecond.github.io/posts/second/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://onesecondpersecond.glitch.me/posts/firstpost/&quot;&gt;First post&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://onesecondpersecond.glitch.me/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://onesecondpersecond.github.io/posts/firstpost/&quot;&gt;First post&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://onesecondpersecond.github.io/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 </content>
