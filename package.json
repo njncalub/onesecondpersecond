@@ -7,7 +7,7 @@
     "email": "njncalub@gmail.com",
     "url": "https://njncalub.github.io/"
   },
-  "homepage": "https://onesecondpersecond.glitch.me/",
+  "homepage": "https://onesecondpersecond.github.io/",
   "keywords": [
     "blog"
   ],
@@ -20,10 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/njncalub/onesecondpersecond.git"
+    "url": "git+https://github.com/onesecondpersecond/onesecondpersecond.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/njncalub/onesecondpersecond/issues"
+    "url": "https://github.com/onesecondpersecond/onesecondpersecond.github.io/issues"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
