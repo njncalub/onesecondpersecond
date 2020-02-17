@@ -21,9 +21,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias("base", "base.njk");
   eleventyConfig.addLayoutAlias("home", "home.njk");
   eleventyConfig.addLayoutAlias("post", "post.njk");
-  
+
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    if( outputPath.endsWith(".html") ) {
+    if (outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -55,9 +55,12 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addCollection("tagsList", require("./src/_11ty/helpers/getTagsList"));
+  eleventyConfig.addCollection(
+    "tagsList",
+    require("./templates/_11ty/helpers/getTagsList")
+  );
 
-  eleventyConfig.addPassthroughCopy("./src/static");
+  eleventyConfig.addPassthroughCopy("./templates/static");
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -90,13 +93,13 @@ module.exports = function(eleventyConfig) {
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
-    
+
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
 
     dir: {
-      input: "src",
+      input: "templates",
       data: "_data",
       includes: "_includes",
       layouts: "_layouts",
