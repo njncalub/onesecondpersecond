@@ -46,7 +46,10 @@
     "rimraf": "^3.0.2",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "better-sqlite3": "^5.4.3",
+    "typescript": "^3.7.5",
+    "@types/better-sqlite3": "^5.4.0"
   },
   "devDependencies": {},
   "engines": {
