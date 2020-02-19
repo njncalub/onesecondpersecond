@@ -17,7 +17,8 @@ const Q_INIT_BOOKS_TABLE = `
     page_count TEXT NOT NULL,
     book_link TEXT NOT NULL,
     image_link TEXT NOT NULL,
-    year_read TEXT NOT NULL
+    year_read TEXT NOT NULL,
+    date_read TEXT NOT NULL
   );
 `;
 const Q_SELECT_BOOKS = `
@@ -32,9 +33,13 @@ const Q_SELECT_BOOKS = `
     page_count,
     book_link,
     image_link,
-    year_read
+    year_read,
+    date_read
   FROM
-    books;
+    books
+  ORDER BY
+    date_read DESC
+  ;
 `;
 
 /** Connects to the database and returns an instance of the database. */

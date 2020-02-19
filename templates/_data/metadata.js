@@ -12,7 +12,6 @@ module.exports = {
     "url": siteUrl
   },
   "feed": {
-    "subtitle": "Living life at the constant rate of 1s/s.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": siteUrl

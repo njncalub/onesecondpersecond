@@ -1,7 +1,8 @@
 ---
-layout: post
-title: Books Read
-templateClass: tmpl-post
+title: 2020 Reading Challenge
+eleventyNavigation:
+  key: 2020 Reading Challenge
+  order: 4
 --- 
 <table>
   <tr>
@@ -10,18 +11,20 @@ templateClass: tmpl-post
     <th>Authors</th>
     <th>Published Date</th>
     <th>Categories</th>
+    <th>Date Read</th>
   </tr>
   {% for book in books %}
   <tr>
     <td>
-      <img src="{{ book.image_link }}" />
+      <a href="{{ book.book_link }}">
+        <img src="{{ book.image_link }}" />
+      </a>
     </td>
-    <td>
-      <a href="{{ book.book_link }}">{{ book.title }}</a>
-    </td>
+    <td>{{ book.title }}</td>
     <td>{% parseJsonString book.authors %}</td>
     <td>{{ book.published_date }}</td>
     <td>{% parseJsonString book.categories %}</td>
+    <td>{{ book.date_read }}</td>
   </tr>
   {% endfor %}
 </table>
