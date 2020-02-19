@@ -4,7 +4,8 @@ const Database = require("better-sqlite3");
 const DATA_DIRECTORY = process.env.DATA_DIRECTORY || "./.data";
 const BOOKS_DB = process.env.BOOKS_DB || "books.db";
 
-// TODO(ncalub): Move queries to a different module.
+// TODO(ncalub): Use the files created at ./helpers/books.
+
 const Q_INIT_BOOKS_TABLE = `
   CREATE TABLE IF NOT EXISTS books (
     id TEXT PRIMARY KEY,
@@ -54,9 +55,6 @@ function connect() {
   const db = new Database(`${DATA_DIRECTORY}/${BOOKS_DB}`, {
     verbose: console.log
   });
-  
-  // NOTE(ncalub): Uncomment to drop tables.
-  // db.prepare(Q_DROP_BOOKS_TABLE).run();
   
   // Initialize tables.
   db.prepare(Q_INIT_BOOKS_TABLE).run();

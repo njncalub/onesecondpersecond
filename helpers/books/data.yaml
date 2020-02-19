@@ -1,15 +1,15 @@
-- year: 2020
+- year: "2020"
   read:
     - title: "Side Hustle: From Idea to Income in 27 Days"
-      isbn: 9781524758844
+      isbn: "9781524758844"
       finished: "2020-01-10"
     - title: "Originals: How Non-Conformists Move the World"
-      isbn: 9780525429562
+      isbn: "9780525429562"
       finished: "2020-01-20"
     - title: "Everybody Dies: A Children's Book for Grown-ups"
-      isbn: 9780062358707
+      isbn: "9780062358707"
       finished: "2020-02-15"
     - title: "Why We Sleep: Unlocking the Power of Sleep and Dreams"
-      isbn: 9781501144325
+      isbn: "9781501144325"
       finished: "2020-02-17"
       
