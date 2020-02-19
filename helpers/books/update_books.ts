@@ -53,8 +53,8 @@ function createFetchAndSaveFunc(db: Sqlite.Database): YearAndDataBookProcessor {
           categories: JSON.stringify(item.volumeInfo.categories),
           isbn: JSON.stringify(item.volumeInfo.industryIdentifiers),
           pageCount: item.volumeInfo.pageCount,
-          bookLink: item.volumeInfo.previewLink,
-          imageLink: item.volumeInfo.imageLinks.thumbnail,
+          bookLink: item.volumeInfo.previewLink.replace(/^http\:\/\//g, "https://"),
+          imageLink: item.volumeInfo.imageLinks.thumbnail.replace(/^http\:\/\//g, "https://"),
           yearRead: year,
           dateRead: book.finished,
         };
