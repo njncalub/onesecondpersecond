@@ -22,14 +22,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf public",
+    "fetch:reading_challenges": "node helpers/reading_challenges/fetch_books.ts",
     "start": "npm-run-all clean --parallel local:*",
     "local:eleventy": "ELEVENTY_ENV=development eleventy --watch --quiet --config=eleventy.config.js",
     "local:webpack": "webpack --mode=development --watch --config webpack.local.js",
-    "build": "npm-run-all clean --parallel stable:*",
+    "build": "npm-run-all clean fetch:* --parallel stable:*",
     "stable:eleventy": "ELEVENTY_ENV=production eleventy --config=eleventy.config.js",
     "stable:webpack": "webpack -p --config webpack.stable.js",
-    "bs-stable": "browser-sync start --server ./public -w --no-open --no-notify --no-ghost-mode",
-    "testbuild": "npm-run-all clean --parallel stable:webpack stable:eleventy bs-stable"
+    "browser_sync": "browser-sync start --server ./public -w --no-open --no-notify --no-ghost-mode",
+    "testbuild": "npm-run-all clean --parallel stable:webpack stable:eleventy browser_sync"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
@@ -46,9 +47,16 @@
     "rimraf": "^3.0.2",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "better-sqlite3": "^5.4.3",
+    "typescript": "^3.7.5",
+    "superagent": "^5.2.2",
+    "yaml": "^1.7.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/better-sqlite3": "^5.4.0",
+    "@types/node": "^13.7.1"
+  },
   "engines": {
     "node": "10.x"
   },

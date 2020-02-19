@@ -1,0 +1,27 @@
+---
+layout: post
+title: Books Read
+templateClass: tmpl-post
+--- 
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Authors</th>
+    <th>Published Date</th>
+    <th>Categories</th>
+  </tr>
+  {% for book in books %}
+  <tr>
+    <td>
+      <img src="{{ book.image_link }}" />
+    </td>
+    <td>
+      <a href="{{ book.book_link }}">{{ book.title }}</a>
+    </td>
+    <td>{% parseJsonString book.authors %}</td>
+    <td>{{ book.published_date }}</td>
+    <td>{% parseJsonString book.categories %}</td>
+  </tr>
+  {% endfor %}
+</table>
