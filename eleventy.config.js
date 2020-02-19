@@ -59,6 +59,11 @@ module.exports = function(eleventyConfig) {
     "tagsList",
     require("./templates/_11ty/helpers/getTagsList")
   );
+  
+  eleventyConfig.addShortcode(
+    "parseJsonString",
+    require("./templates/_11ty/helpers/parseJsonString")
+  );
 
   // TODO(njncalub): Remove this after migrating to webpack.
   eleventyConfig.addPassthroughCopy("./templates/static");
