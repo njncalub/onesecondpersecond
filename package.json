@@ -22,15 +22,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf public",
-    "fetch:reading_challenges": "node helpers/reading_challenges/fetch_books.ts",
+    "fetch:books": "node helpers/books/fetch_data.ts",
     "start": "npm-run-all clean --parallel local:*",
     "local:eleventy": "ELEVENTY_ENV=development eleventy --watch --quiet --config=eleventy.config.js",
     "local:webpack": "webpack --mode=development --watch --config webpack.local.js",
     "build": "npm-run-all clean fetch:* --parallel stable:*",
     "stable:eleventy": "ELEVENTY_ENV=production eleventy --config=eleventy.config.js",
     "stable:webpack": "webpack -p --config webpack.stable.js",
-    "browser_sync": "browser-sync start --server ./public -w --no-open --no-notify --no-ghost-mode",
-    "testbuild": "npm-run-all clean --parallel stable:webpack stable:eleventy browser_sync"
+    "testing:browser_sync": "browser-sync start --server ./public -w --no-open --no-notify --no-ghost-mode",
+    "testbuild": "npm-run-all clean --parallel stable:webpack stable:eleventy testing:browser_sync"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",

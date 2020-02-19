@@ -13,7 +13,6 @@ const BOOKS_DB = process.env.BOOKS_DB || "books.db";
 const GOOGLE_BOOKS_API_URI = "https://www.googleapis.com/books/v1/volumes";
 
 // TODO(ncalub): Move queries to a different module.
-const Q_DROP_BOOKS_TABLE = `DROP TABLE books;`;
 const Q_INIT_BOOKS_TABLE = `
   CREATE TABLE IF NOT EXISTS books (
     id TEXT PRIMARY KEY,
@@ -26,7 +25,8 @@ const Q_INIT_BOOKS_TABLE = `
     page_count TEXT NOT NULL,
     book_link TEXT NOT NULL,
     image_link TEXT NOT NULL,
-    year_read TEXT NOT NULL
+    year_read TEXT NOT NULL,
+    date_read TEXT NOT NULL
   );
 `;
 const Q_INSERT_BOOK = `
@@ -41,7 +41,8 @@ const Q_INSERT_BOOK = `
     page_count,
     book_link,
     image_link,
-    year_read
+    year_read,
+    date_read
   )
   VALUES (
     @id,
@@ -54,7 +55,8 @@ const Q_INSERT_BOOK = `
     @pageCount,
     @bookLink,
     @imageLink,
-    @yearRead
+    @yearRead,
+    @dateRead
   )
   ON CONFLICT(id) DO UPDATE SET
     title=@title,
@@ -66,12 +68,16 @@ const Q_INSERT_BOOK = `
     page_count=@pageCount,
     book_link=@bookLink,
     image_link=@imageLink,
-    year_read=@yearRead;
+    year_read=@yearRead,
+    date_read=@dateRead;
 `;
 
 /** Runs the application. */
 function run() {
   const db = connect();
+  
+  // Initialize tables.
+  db.prepare(Q_INIT_BOOKS_TABLE).run();
   
   upsertReadBooks(db);
 }
@@ -89,12 +95,6 @@ function connect() {
     verbose: console.log
   });
   
-  // NOTE(ncalub): Uncomment to drop tables.
-  // db.prepare(Q_DROP_BOOKS_TABLE).run();
-  
-  // Initialize tables.
-  db.prepare(Q_INIT_BOOKS_TABLE).run();
-  
   return db;
 }
 
@@ -105,21 +105,21 @@ function upsertReadBooks(db) {
     sInsertBook.run(book);
   });
   
-  const dataFile = fs.readFileSync("./helpers/reading_challenges/data.yaml", "utf8");
+  const dataFile = fs.readFileSync("./helpers/books/data.yaml", "utf8");
   const parsedData = yaml.parse(dataFile);
   
   // Iterate over all books read per year and save each book with their updated information.
   parsedData.forEach((year) => {
     const booksRead = year.read || [];
     booksRead.forEach((bookRead) => {
-      fetchAndSave(year.year, bookRead.isbn, insertBook);
+      fetchAndSave(year.year, bookRead, insertBook);
     })
   });
 }
 
 /** Fetches the book information and saves it to the database. */
-function fetchAndSave(yearRead, isbn, insertBook) {
-  const q = `isbn:${encodeURI(isbn)}`;
+function fetchAndSave(yearRead, bookRead, insertBook) {
+  const q = `isbn:${encodeURI(bookRead.isbn)}`;
   return superagent.get(GOOGLE_BOOKS_API_URI)
     .query({ q })
     .end((err, res) => {
@@ -137,8 +137,9 @@ function fetchAndSave(yearRead, isbn, insertBook) {
       const categories = JSON.stringify(book.volumeInfo.categories);
       const isbn = JSON.stringify(book.volumeInfo.industryIdentifiers);
       const pageCount = book.volumeInfo.pageCount;
-      const bookLink = book.selfLink;
+      const bookLink = book.volumeInfo.previewLink;
       const imageLink = book.volumeInfo.imageLinks.thumbnail;
+      const dateRead = bookRead.finished;
     
       const data = {
         id,
@@ -152,6 +153,7 @@ function fetchAndSave(yearRead, isbn, insertBook) {
         bookLink,
         imageLink,
         yearRead,
+        dateRead,
       };
     
       insertBook(data);

@@ -5,7 +5,7 @@ permalink: feed/feed.xml
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>{{ metadata.site.title }}</title>
-	<subtitle>{{ metadata.feed.subtitle }}</subtitle>
+	<subtitle>{{ metadata.site.description }}</subtitle>
 	{% set absoluteUrl %}{{ metadata.feed.path | url | absoluteUrl(metadata.site.url) }}{% endset %}
 	<link href="{{ absoluteUrl }}" rel="self"/>
 	<link href="{{ metadata.site.url }}"/>
