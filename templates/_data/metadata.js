@@ -1,14 +1,21 @@
-{
+const forProduction = process.env.ELEVENTY_ENV == "production";
+let siteUrl = "https://onesecondpersecond.glitch.me/";
+if (forProduction) {
+  siteUrl = "https://onesecondpersecond.github.io/";
+}
+
+module.exports = {
+  "production": forProduction,
   "site": {
     "title": "1s/s",
     "description": "Living life at the constant rate of 1s/s.",
-    "url": "https://onesecondpersecond.github.io/"
+    "url": siteUrl
   },
   "feed": {
     "subtitle": "Living life at the constant rate of 1s/s.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://onesecondpersecond.github.io/"
+    "id": siteUrl
   },
   "author": {
     "name": "Nap Joseph Calub",
