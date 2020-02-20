@@ -20,16 +20,17 @@
     "url": "https://github.com/onesecondpersecond/onesecondpersecond.github.io/issues"
   },
   "scripts": {
-    "clean": "rimraf public",
+    "clean": "rimraf public helpers_js",
     "books:init": "ts-node helpers/books/create_tables.ts",
     "books:fetch": "ts-node helpers/books/update_books.ts",
     "books:destroy": "ts-node helpers/books/drop_tables.ts",
+    "compile:typescript": "tsc",
     "init": "npm-run-all books:init",
     "destroy": "npm-run-all books:destroy",
-    "start": "npm-run-all clean --parallel local:*",
+    "start": "npm-run-all clean compile:* --parallel local:*",
     "local:eleventy": "ELEVENTY_ENV=development eleventy --watch --quiet --config=eleventy.config.js",
     "local:webpack": "webpack --mode=development --watch --config webpack.local.js",
-    "build": "npm-run-all clean books:init books:fetch --parallel stable:*",
+    "build": "npm-run-all clean compile:* books:init books:fetch --parallel stable:*",
     "stable:eleventy": "ELEVENTY_ENV=production eleventy --config=eleventy.config.js",
     "stable:webpack": "webpack -p --config webpack.stable.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -60,7 +61,8 @@
     "@types/better-sqlite3": "^5.4.0",
     "@types/node": "^13.7.1",
     "@types/yaml": "^1.2.0",
-    "@types/superagent": "^4.1.7"
+    "@types/superagent": "^4.1.7",
+    "app-module-path": "^2.2.0"
   },
   "devDependencies": {},
   "engines": {

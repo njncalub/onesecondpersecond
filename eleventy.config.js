@@ -11,6 +11,8 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const htmlmin = require("html-minifier");
 
+require("app-module-path").addPath(__dirname);
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -59,7 +61,7 @@ module.exports = function(eleventyConfig) {
     "tagsList",
     require("./templates/_11ty/helpers/getTagsList")
   );
-  
+
   eleventyConfig.addShortcode(
     "parseJsonString",
     require("./templates/_11ty/helpers/parseJsonString")

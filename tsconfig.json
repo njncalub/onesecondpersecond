@@ -4,7 +4,9 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "rootDir": "helpers/",
+    "outDir": "helpers_js/"
   },
   "include": ["helpers/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

@@ -13,11 +13,11 @@ $ npm install
 # initialize database
 $ npm run-script init
 
-# fetch the information books listed in helpers/books/data.yaml
+# fetch the information of books listed in the helpers/books/data.yaml file
 $ npm run-script books:fetch
 
 # start development server
-$ npm run-script start
+$ npm start
 ```
 
 ## Built using

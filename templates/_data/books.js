@@ -1,70 +1,13 @@
-const fs = require("fs");
-const Database = require("better-sqlite3");
-
-const DATA_DIRECTORY = process.env.DATA_DIRECTORY || "./.data";
-const BOOKS_DB = process.env.BOOKS_DB || "books.db";
-
-// TODO(ncalub): Use the files created at ./helpers/books.
-
-const Q_INIT_BOOKS_TABLE = `
-  CREATE TABLE IF NOT EXISTS books (
-    id TEXT PRIMARY KEY,
-    title TEXT NOT NULL,
-    subtitle TEXT NOT NULL,
-    authors TEXT NOT NULL,
-    published_date TEXT NOT NULL,
-    categories TEXT NOT NULL,
-    isbn TEXT NOT NULL,
-    page_count TEXT NOT NULL,
-    book_link TEXT NOT NULL,
-    image_link TEXT NOT NULL,
-    year_read TEXT NOT NULL,
-    date_read TEXT NOT NULL
-  );
-`;
-const Q_SELECT_BOOKS = `
-  SELECT
-    id,
-    title,
-    subtitle,
-    authors,
-    published_date,
-    categories,
-    isbn,
-    page_count,
-    book_link,
-    image_link,
-    year_read,
-    date_read
-  FROM
-    books
-  ORDER BY
-    date_read DESC
-  ;
-`;
-
-/** Connects to the database and returns an instance of the database. */
-function connect() {
-  // Create the data directory if it doesn't exist yet.
-  // TODO(njncalub): Create the directory on database creation error,
-  // instead of checking it here.
-  if (!fs.existsSync(DATA_DIRECTORY)) {
-    fs.mkdirSync(DATA_DIRECTORY);
-  }
-
-  const db = new Database(`${DATA_DIRECTORY}/${BOOKS_DB}`, {
-    verbose: console.log
-  });
-  
-  // Initialize tables.
-  db.prepare(Q_INIT_BOOKS_TABLE).run();
-  
-  return db;
-}
+const queries = require("helpers_js/books/queries");
+const connection = require("helpers_js/books/connection");
 
 module.exports = function() {
-  const db = connect();
-  const books = db.prepare(Q_SELECT_BOOKS).all();
+  const db = connection.connect();
+  
+  // Initialize the database if doesn't exist.
+  db.prepare(queries.CREATE_BOOKS_TABLE_QUERY).run();
+  
+  const books = db.prepare(queries.SELECT_BOOKS_QUERY).all();
   
   db.close();
   
