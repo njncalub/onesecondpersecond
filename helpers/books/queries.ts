@@ -64,3 +64,25 @@ export const UPSERT_BOOK_QUERY = `
     year_read=@yearRead,
     date_read=@dateRead;
 `;
+
+/** Select all the books from the `books` table. */
+export const SELECT_BOOKS_QUERY = `
+  SELECT
+    id,
+    title,
+    subtitle,
+    authors,
+    published_date,
+    categories,
+    isbn,
+    page_count,
+    book_link,
+    image_link,
+    year_read,
+    date_read
+  FROM
+    books
+  ORDER BY
+    date_read DESC
+  ;
+`;
