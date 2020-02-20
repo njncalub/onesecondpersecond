@@ -10,11 +10,11 @@ Living life at the constant rate of 1s/s.
 # install package dependencies
 $ npm install
 
-# initialize database
-$ npm run-script init
+# initialize all databases
+$ npm run-script init:all
 
-# fetch the information of books listed in the helpers/books/data.yaml file
-$ npm run-script books:fetch
+# fetch all required information
+$ npm run-script fetch:all
 
 # start development server
 $ npm start
