@@ -10,12 +10,6 @@ Living life at the constant rate of 1s/s.
 # install package dependencies
 $ npm install
 
-# initialize all databases
-$ npm run-script init:all
-
-# fetch all required information
-$ npm run-script fetch:all
-
 # start development server
 $ npm start
 ```
